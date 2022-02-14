@@ -1,9 +1,10 @@
 import os
 from tkinter import *
 from LevelTier import level_tier
-from BunkersBadassesLoot import gun_generator
+from Guns import gun_generator
 from Grenades import grenade_gen
 from Shields import shield_gen
+from Relics import  relic_gen
 
 def display_guns(n):
     gun_info.delete(1.0, 'end') #Clears old entry
@@ -20,6 +21,10 @@ def display_shield():
     shield_info.delete(1.0, 'end')
     shield_info.insert(1.0, str(shield_gen(int(lvl.get()))))
 
+def display_relic():
+    relic_info.delete(1.0, 'end')
+    relic_info.insert(1.0, str(relic_gen()))
+
 
 root = Tk()
 root.title('Bunkers and Badasses Loot, suckas!')
@@ -35,7 +40,7 @@ level_label = Label(root, text="Player level")
 
 #----   Guns   ----#
 
-gun_num_label = Label(root, text="Number o' Guns", fg='white')
+gun_num_label = Label(root, text="Number o' Guns")
 gun_num = Entry(root, width=3)
 gun_num.insert(0, 1)
 
@@ -53,6 +58,10 @@ gre_info = Text(root, height=2, width=40)
 shield_btn = Button(root, text='Shields Here', command=lambda: display_shield())
 shield_info = Text(root, height=2, width=50)
 
+#---- Relics    ----#
+relic_btn = Button(root, text='Behold the Relics', command=lambda: display_relic())
+relic_info = Text(root, height=2, width=50)
+
 
 #----- Placements -----#
 
@@ -64,6 +73,9 @@ gre_info.pack()
 
 shield_btn.pack()
 shield_info.pack()
+
+relic_btn.pack()
+relic_info.pack()
 
 gun_num_label.pack()
 gun_num.pack()
