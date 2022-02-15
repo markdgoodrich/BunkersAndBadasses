@@ -1,4 +1,5 @@
 import random
+from LevelTier import level_tier
 
 
 #Enemy drop drop
@@ -89,7 +90,8 @@ rarity_table = {
 
 
 
-def gun_generator():
+def gun_generator(n):
+    tier= level_tier(n)
     gun = gun_type[random.randint(1,6)]
     guild = guilds[(random.randint(1,8))]
     rare = rarity_table[int(str(random.randint(1,4))+str(random.randint(1,6)))]
@@ -97,16 +99,15 @@ def gun_generator():
     if guild == 'Alas' or guild == 'Blackpowder':
         if rare[-1] == 'E':
             rare = rare[:-1]
-        return  guild + ' ' + gun + '(' + rare + ')', bonuses(guild, rare)
+        return  guild + ' ' + gun + '(' + rare + ')', bonuses(guild, rare)# + stat_gen(tier, gun)
     elif rare[-1] == 'E':
         if rare[-1] == 'E':
             rare = rare[:-1]
         #else:
         #   pass
-        return element_picker(gun, guild, rare), bonuses(guild, rare)
+        return element_picker(gun, guild, rare), bonuses(guild, rare)#+ stat_gen(tier, gun)
     else:
-        return  guild + ' ' + gun + '(' + rare + ')', bonuses(guild,rare)
-    
+        return  guild + ' ' + gun + '(' + rare + ')', bonuses(guild,rare)#+ stat_gen(tier, gun)
         
 def element_picker(gun, guild, rare):        
     ele_roll = random.randint(1,100) 
@@ -399,6 +400,10 @@ def lootsplosion_array(n):
         
     return loot 
 
+
+
+
+#stat_gen(11, 'Pistol')
 
 #while True:
 #    gun_num = input('HOW MANY GUNS DO YOU WANT?!?: ')

@@ -25,13 +25,13 @@ tier1_grenade = {
     }
 
 tier2_grenade = {
-'Ashen' : 'Homing - Automatically hits closest tartget. 2d8',
+'Ashen' : 'Homing - Automatically hits closest target. 2d8',
 'Dahlia' : 'Bouncing Betty - Detonates in target quare for 2 turns. 2d8',
 'Feriore' : 'Sticky - Sticks to surfaces. Deonates after 1 turn. 2d8',
 'Hyperius' : 'Roider - Increased Damage. 2d10',
 'Malefactor' : 'Contact - Detonates on contact with target. 2d8',
 'Pangoblin' : 'Force - Targets Hit are Knocked Back 1 square. 2d8',
-'Stoker' : 'Rain - Launches up and eals Damage downward in a 2x2 square area. 2d8',
+'Stoker' : 'Rain - Launches up and deals Damage downward in a 2x2 square area. 2d8',
 'Torgue' : 'MIRV - Splits into 3 grenades. 2d8',
     }
 
@@ -47,13 +47,13 @@ tier3_grenade = {
     }
 
 tier4_grenade = {
-'Ashen' : 'Homing - Automatically hits closest tartget. 4d8',
+'Ashen' : 'Homing - Automatically hits closest target. 4d8',
 'Dahlia' : 'Bouncing Betty - Detonates in target quare for 2 turns. 4d8',
 'Feriore' : 'Sticky - Sticks to surfaces. Deonates after 1 turn. 4d8',
 'Hyperius' : 'Roider - Increased Damage. 4d10',
 'Malefactor' : 'Contact - Detonates on contact with target. 4d8',
 'Pangoblin' : 'Force - Targets Hit are Knocked Back 1 square. 4d8',
-'Stoker' : 'Rain - Launches up and eals Damage downward in a 2x2 square area. 4d8',
+'Stoker' : 'Rain - Launches up and deals Damage downward in a 2x2 square area. 4d8',
 'Torgue' : 'MIRV - Splits into 3 grenades. 4d8',
     }
 
