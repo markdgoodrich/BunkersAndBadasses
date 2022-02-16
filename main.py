@@ -8,6 +8,7 @@ from GunCard import gun_type
 from Grenades import grenade_gen
 from Shields import shield_gen
 from Relics import  relic_gen
+from Potions import potion_gen
 
 def display_guns(n):
     gun_info.delete(1.0, 'end') #Clears old entry
@@ -30,6 +31,11 @@ def display_shield():
 def display_relic():
     relic_info.delete(1.0, 'end')
     relic_info.insert(1.0, str(relic_gen()))
+
+def display_potions():
+    potion_info.delete(1.0, 'end')
+    potion_info.insert(1.0, str(potion_gen()))
+
 
 def display_stats(n):
     #Clear all old fields
@@ -147,6 +153,11 @@ relic_btn = Button(root, text='Behold, Relics!', bg=button_color, command=lambda
 relic_info = Text(root, height=2, width=50,  wrap=WORD, bg=textbox_color)
 
 
+#---- Potions    ----#
+potion_btn = Button(root, text='Drink Up', bg='#9fc5e8', command=lambda: display_potions())
+potion_info = Text(root, height=3, width=50, wrap=WORD, bg=textbox_color)
+
+
 #----- Placements -----#
 
 level_label.grid(row=1, column = 1)
@@ -168,6 +179,9 @@ shield_info.grid(row=4, column =1, sticky='w', columnspan=6)
 relic_btn.grid(row=5, column =0)
 relic_info.grid(row=5, column =1, sticky='w', columnspan=6)
 
+
+potion_btn.grid(row=6, column=0)
+potion_info.grid(row=6, column=1, sticky='w', columnspan=6)
 
 root.mainloop()
 
