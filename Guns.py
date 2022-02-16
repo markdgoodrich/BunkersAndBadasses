@@ -84,7 +84,8 @@ rarity_table = {
 43: 'EpicE',
 44: 'EpicE',
 45: 'LegendaryE',
-46: 'LegendaryE'
+46: 'LegendaryE',
+99: 'Legendary' #Added so that the rarity color parses will work. this result will never be rolled
     }
 
 
