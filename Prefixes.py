@@ -1,20 +1,20 @@
 import random
 
-red_texts = {
-1: "POP POP! : Deals Crit Damage twice",
-2: "I never freeze : Add Cyro Element type",
-3: "Toasty! : Adds Increndiary Element type",
-4: "Was he slow? : Fires backwards",
-5: "We Hate You, Please Die. : Taunts the farthest enemy each turn",
-6: "Tell them they're next : Won't deal Damage to the final Enemy in an encounter",
-7: "PAN SHOT! : always hits the closest enemy",
-8: "Envision Wyverns: Adds Radiation Element type",
-9: "I'm melting! : Add Corrosive Element type",
-10: "The same thing that happens to everything else : Adds Shock Element type",
-11: "360 quickscope : Adds a Crit to each Ranged Attack",
-12: "Any Questions? : Shoots pumpkin bombs that deal an extra 3d6 Explosive Damage",
-13: "Blood and Thunder : Take 1d6 Health Damage to deal +3d6 Shock Damage",
-14: "SI VIS PACEM PARA BELLUM : Gain extra Attack if Acting Before Enemies",
+prefix_list = {
+1: "One:Can only be fired once per day. Deals 10x Damage",
+2: "Normal:Appearance of a Common Gun",
+3: "Adorable:25% to distract Enemies with baby hallucinations",
+4: "Gaudy:Highly refletice, which can be used to temporarily blind Enemies, giving them -3 of Attack Rolls",
+5: "Cheerful:Grants +1 to all Talk Checks while equipped",
+6: "Jumbled:Has the Accuracy and Damage, but the Range and bonuses of another",
+7: "Classy:Gun will only fire if the wielder has the pinky of their shooting hand out",
+8: "Economic:Enemies drop 2 gold per Hit and 5 gold per Crit",
+9: "Certain:Grants a +2 bonus during Badass attempts",
+10: "Humdrum:Enemies Hit experience ennui.",
+11: "Lively:This gun has an AI that thinks it's alive.It can only any door once per day",
+12: "Sleepy:Enemies Hit and Slowed,
+13: "Deafening:Screams when fired, dealing 1 Damage to all adjacent targets",
+14: "Selfish:Deals 1d6 Damage to wielder when changing to another equipped gun",
 15: "You're breathtaking! : Wielder cannot be targeted on the first turn of an encounter",
 16: "Pass turn. : Wielder may throw a grenade during the End of Turn step",
 17: "I am Vengeance! : Deals 2x Damage to Enemies adjacent to allies",
@@ -56,6 +56,8 @@ red_texts = {
 
 
 
-def redtext_gen():
-    red = red_texts[(random.randint(1,50))]
-    return red
+def prefix_gen():
+    prefix_choice = prefix_list[(random.randint(1,100))]
+    #split it into prefix & effect
+    prefix, prefix_effect = prefix_choice.split(":")
+    return prefix
