@@ -75,12 +75,13 @@ def color_gun_text(n):
 root = Tk()
 root.title('Bunkers and Badasses Loot, suckas!')
 root.geometry("750x400")
-background_color = 'gray'
+background_color = '#5b5b5b'
 button_color= '#c27ba0'
+textbox_color = '#999999'
 
 root['background'] = background_color
 
-#--- Image testing
+#--- Image 
 vault_sym = PhotoImage(file="./assests/VaultSymbol.png")
 vault_sym = vault_sym.subsample(6,6)
 panel = Label(root, image = vault_sym, bg=background_color)
@@ -94,15 +95,13 @@ level_choice = OptionMenu(root, lvl, *levels, command=level_tier)
 level_choice.config(bg=background_color)
 level_label = Label(root, text="Player level", font='12', bg=background_color)
 
-
-
 #----   Guns   ----#
 
 gun_num_label = Label(root, text="Number o' Guns")
 gun_num = Entry(root, width=3)
 gun_num.insert(0, 1)
 
-gun_info = Text(root, height=3, width=60, wrap=WORD, font=('Helvetica 12')) #Displays gun info generated from the Button#
+gun_info = Text(root, height=3, width=60, wrap=WORD, font=('Helvetica 12'), bg=textbox_color) #Displays gun info generated from the Button#
 gun_btn = Button(root, text='Gimmie Guns, Baby!', command=lambda: display_guns(int(gun_num.get())) )   #need lambda so it doesn't run immediately
 
 
@@ -136,16 +135,16 @@ gun_range.grid(row=22, column=6, sticky='w')
 
 #----   Grenade    ----#
 gre_btn = Button(root, text='Grenade Vending', bg='#fcb66f', command=lambda: display_grenades())
-gre_info = Text(root, height=2, width=50, wrap=WORD)
+gre_info = Text(root, height=2, width=50, wrap=WORD, bg=textbox_color)
 
 
 #---- Shields    ----#
 shield_btn = Button(root, text='Shields Here', bg='#9fc5e8', command=lambda: display_shield())
-shield_info = Text(root, height=3, width=50, wrap=WORD)
+shield_info = Text(root, height=3, width=50, wrap=WORD, bg=textbox_color)
 
 #---- Relics    ----#
 relic_btn = Button(root, text='Behold, Relics!', bg=button_color, command=lambda: display_relic())
-relic_info = Text(root, height=2, width=50,  wrap=WORD)
+relic_info = Text(root, height=2, width=50,  wrap=WORD, bg=textbox_color)
 
 
 #----- Placements -----#
