@@ -9,6 +9,7 @@ from Grenades import grenade_gen
 from Shields import shield_gen
 from Relics import  relic_gen
 from Potions import potion_gen
+from RedText import redtext_gen
 
 def display_guns(n):
     gun_info.delete(1.0, 'end') #Clears old entry
@@ -35,6 +36,11 @@ def display_relic():
 def display_potions():
     potion_info.delete(1.0, 'end')
     potion_info.insert(1.0, str(potion_gen()))
+
+def display_redtext():
+    redtext_info.delete(1.0, 'end')
+    redtext_info.insert(1.0, str(redtext_gen()))
+
 
 
 def display_stats(n):
@@ -80,7 +86,7 @@ def color_gun_text(n):
 
 root = Tk()
 root.title('Bunkers and Badasses Loot, suckas!')
-root.geometry("750x400")
+root.geometry("750x500")
 background_color = '#5b5b5b'
 button_color= '#c27ba0'
 textbox_color = '#999999'
@@ -154,8 +160,13 @@ relic_info = Text(root, height=2, width=50,  wrap=WORD, bg=textbox_color)
 
 
 #---- Potions    ----#
-potion_btn = Button(root, text='Drink Up', bg='#9fc5e8', command=lambda: display_potions())
+potion_btn = Button(root, text='Drink Up', bg='#c1ecae', command=lambda: display_potions())
 potion_info = Text(root, height=3, width=50, wrap=WORD, bg=textbox_color)
+
+
+#---- Red Text  ----#
+redtext_btn = Button(root, text='Red Text', bg='#cc0000', fg='#eeeeee', command=lambda: display_redtext())
+redtext_info = Text(root, height=3, width=50, wrap=WORD, fg='#cc0000', bg=textbox_color)
 
 
 #----- Placements -----#
@@ -163,25 +174,24 @@ potion_info = Text(root, height=3, width=50, wrap=WORD, bg=textbox_color)
 level_label.grid(row=1, column = 1)
 level_choice.grid(row=1, column=2, sticky='w')
 
-#gun_num_label.grid(row=7, column=0, sticky='w')
-#gun_num.grid(row = 7, column = 1, sticky='w')
-gun_btn.grid(row=9, column = 1, sticky='w', columnspan=3)
-gun_info.grid(row=10, column=1, columnspan=8)
-
 gre_btn.grid(row=3, column =0)
 gre_info.grid(row=3, column=1, columnspan =6, sticky='w')
-
 
 shield_btn.grid(row=4, column =0)
 shield_info.grid(row=4, column =1, sticky='w', columnspan=6)
 
-
 relic_btn.grid(row=5, column =0)
 relic_info.grid(row=5, column =1, sticky='w', columnspan=6)
 
-
 potion_btn.grid(row=6, column=0)
 potion_info.grid(row=6, column=1, sticky='w', columnspan=6)
+
+redtext_btn.grid(row=12, column=0)
+redtext_info.grid(row=12, column=1, sticky='w', columnspan=6)
+
+gun_btn.grid(row=9, column = 1, sticky='w', columnspan=3)
+gun_info.grid(row=11, column=1, columnspan=8)
+
 
 root.mainloop()
 
