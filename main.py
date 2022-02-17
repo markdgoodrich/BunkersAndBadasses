@@ -10,15 +10,25 @@ from Shields import shield_gen
 from Relics import  relic_gen
 from Potions import potion_gen
 from RedText import redtext_gen
+from Prefixes import prefix_gen
 
 def display_guns(n):
     gun_info.delete(1.0, 'end') #Clears old entry
+    prefix_info.delete(1.0, 'end')
+    
+    if prefix_var.get():        #Checks to see if Prefix should be generated
+        display_prefix()
+    #if redtext_var.get():
+    #    display_redtext()
+        
     for i in range (1, int(n) +1):
         gun_str = str(gun_generator(int(lvl.get())))[2:-2].replace("'", '')     #removes unnecessary characters
         #print(gun_str)
-        gun_info.insert(1.0, str(gun_str)+ '\n')
+        gun_info.insert(2.0, str(gun_str)+ '\n')
         display_stats(gun_str)  #To Generate the Stats Card
         color_gun_text(gun_str)
+        display_redtext(color_gun_text(gun_str))
+        
         return gun_str
 
 def display_grenades():
@@ -37,11 +47,20 @@ def display_potions():
     potion_info.delete(1.0, 'end')
     potion_info.insert(1.0, str(potion_gen()))
 
-def display_redtext():
-    redtext_info.delete(1.0, 'end')
-    redtext_info.insert(1.0, str(redtext_gen()))
-
-
+def display_redtext(n):     #inputs gun rarity
+    if redtext_var.get() and n == 'Epic':
+        redtext_info.delete(1.0, 'end')
+        redtext_info.insert(1.0, str(redtext_gen()))
+    elif redtext_var.get() and n == 'Legendary':
+        redtext_info.delete(1.0, 'end')
+        redtext_info.insert(1.0, str(redtext_gen()))
+    else:
+        redtext_info.delete(1.0, 'end')
+        
+def display_prefix():
+    prefix = prefix_gen()   #runs prefix_gun
+    gun_info.insert(1.0, prefix[0] + " ")
+    prefix_info.insert(1.0, prefix[1])
 
 def display_stats(n):
     #Clear all old fields
@@ -83,10 +102,11 @@ def color_gun_text(n):
         gun_info.config(bg='#d5a6bd')
     elif rarity == 'Legendary':
         gun_info.config(bg='#f6b26b')
+    return rarity
 
 root = Tk()
 root.title('Bunkers and Badasses Loot, suckas!')
-root.geometry("750x500")
+root.geometry("750x600")
 background_color = '#5b5b5b'
 button_color= '#c27ba0'
 textbox_color = '#999999'
@@ -165,8 +185,17 @@ potion_info = Text(root, height=3, width=50, wrap=WORD, bg=textbox_color)
 
 
 #---- Red Text  ----#
-redtext_btn = Button(root, text='Red Text', bg='#cc0000', fg='#eeeeee', command=lambda: display_redtext())
+#redtext_btn = Button(root, text='Red Text', bg='#cc0000', fg='#eeeeee', command=lambda: display_redtext())
+redtext_var = BooleanVar()
+redtext_btn = Checkbutton(root, text='Red Text', bg='#cc0000', variable=redtext_var, onvalue = True, offvalue = False)
 redtext_info = Text(root, height=3, width=50, wrap=WORD, fg='#cc0000', bg=textbox_color)
+
+
+#---- Prefix  ----#
+prefix_var = BooleanVar()
+prefix_btn = Checkbutton(root, text='Prefix', variable=prefix_var, onvalue=True, offvalue=False)
+prefix_info = Text(root, height=3, width=60, wrap=WORD, bg=textbox_color) #Displays gun info generated from the Button#
+
 
 
 #----- Placements -----#
@@ -186,11 +215,15 @@ relic_info.grid(row=5, column =1, sticky='w', columnspan=6)
 potion_btn.grid(row=6, column=0)
 potion_info.grid(row=6, column=1, sticky='w', columnspan=6)
 
-redtext_btn.grid(row=12, column=0)
-redtext_info.grid(row=12, column=1, sticky='w', columnspan=6)
+prefix_btn.grid(row=9, column = 6)
 
 gun_btn.grid(row=9, column = 1, sticky='w', columnspan=3)
-gun_info.grid(row=11, column=1, columnspan=8)
+gun_info.grid(row=11, column=1, columnspan=8, sticky='w')
+
+prefix_info.grid(row=12, column=1, sticky='w', columnspan=6)
+
+redtext_btn.grid(row=9, column=7)
+redtext_info.grid(row=13, column=1, sticky='w', columnspan=6)
 
 
 root.mainloop()
