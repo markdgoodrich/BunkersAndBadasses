@@ -11,8 +11,8 @@ To Do
 -------
 * Add Lootsplosion button (For enemies, Chests, Caches)
 * ~~Add Potion generator~~
-*~~ Add 'Prefix' button and functionality (append current generated gun with a rolled Prefix) ~~
-*~~ Add 'Red Text' button and functionality (separate Label under the Gun Card/Stats)~~
+* ~~Add 'Prefix' button and functionality (append current generated gun with a rolled Prefix)~~
+* ~~Add 'Red Text' button and functionality (separate Label under the Gun Card/Stats)~~
 
 
 Installation & Usage
