@@ -27,7 +27,9 @@ def display_guns(n):
         gun_info.insert(2.0, str(gun_str)+ '\n')
         display_stats(gun_str)  #To Generate the Stats Card
         color_gun_text(gun_str)
-        display_redtext(color_gun_text(gun_str))
+        shotgun_sniper_bonus(gun_str)
+        
+        display_redtext(color_gun_text(gun_str))    #To determine Red Text
         
         return gun_str
 
@@ -104,6 +106,14 @@ def color_gun_text(n):
         gun_info.config(bg='#f6b26b')
     return rarity
 
+
+def shotgun_sniper_bonus(n):
+    if 'Sniper' in n:
+        prefix_info.insert(0.0, "If Range 3+: +3 Accuracy. ")
+    elif 'Shotgun' in n:
+        prefix_info.insert(0.0, "If Range 3 or less: +2 Damage. ")
+            
+
 root = Tk()
 root.title('Bunkers and Badasses Loot, suckas!')
 root.geometry("750x600")
@@ -117,7 +127,7 @@ root['background'] = background_color
 vault_sym = PhotoImage(file="./assests/VaultSymbol.png")
 vault_sym = vault_sym.subsample(6,6)
 panel = Label(root, image = vault_sym, bg=background_color)
-panel.grid(row=0, rowspan=5, column=8, sticky='e')
+panel.grid(row=0, rowspan=5, column=7, sticky='e')
 
 #----   Tier/Levels    ----#
 levels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
@@ -164,6 +174,7 @@ dmg3_text.grid(row=22, column=4, sticky='w')
 dmg_die.grid(row=22, column=5, sticky='w')
 gun_range.grid(row=22, column=6, sticky='w')
 
+gun_card = Label(root, text="Base Gun Stats", font='Bold 12', bg=background_color, fg='#e69138').grid(row=19, column=1, columnspan=3, sticky='w')
 
 #----   Grenade    ----#
 gre_btn = Button(root, text='Grenade Vending', bg='#fcb66f', command=lambda: display_grenades())
@@ -213,14 +224,14 @@ relic_btn.grid(row=5, column =0)
 relic_info.grid(row=5, column =1, sticky='w', columnspan=6)
 
 potion_btn.grid(row=6, column=0)
-potion_info.grid(row=6, column=1, sticky='w', columnspan=6)
+potion_info.grid(row=6, column=1, sticky='w', columnspan=6, pady=8)
 
 prefix_btn.grid(row=9, column = 6)
 
-gun_btn.grid(row=9, column = 1, sticky='w', columnspan=3)
+gun_btn.grid(row=9, column = 1, sticky='w', columnspan=3, pady=8)
 gun_info.grid(row=11, column=1, columnspan=8, sticky='w')
 
-prefix_info.grid(row=12, column=1, sticky='w', columnspan=6)
+prefix_info.grid(row=12, column=1, sticky='w', columnspan=6, pady=4)
 
 redtext_btn.grid(row=9, column=7)
 redtext_info.grid(row=13, column=1, sticky='w', columnspan=6)

@@ -1,5 +1,5 @@
-#Bunkers & Badasses 
-#Loot Generator
+Bunkers & Badasses 
+Loot Generator
 -------------------
 
 A simple Tkinter GUI to automatically generate loot for the Bunkers & Badasses TTRPG.
@@ -11,9 +11,10 @@ To Do
 -------
 * Add Lootsplosion button (For enemies, Chests, Caches)
 * ~~Add Potion generator~~
-*~~ Add 'Prefix' button and functionality (append current generated gun with a rolled Prefix) ~~
-*~~ Add 'Red Text' button and functionality (separate Label under the Gun Card/Stats)~~
-
+* ~~Add 'Prefix' button and functionality (append current generated gun with a rolled Prefix)~~
+* ~~Add 'Red Text' button and functionality (separate Label under the Gun Card/Stats)~~
+* ~~Add Shotgun & Sniper bonuses~~
+* Make it pretty
 
 Installation & Usage
 --------
@@ -21,7 +22,7 @@ Simply clone the git repository
 ```
 git clone https://github.com/markdgoodrich/BunkersAndBadasses.git
 ```
-The run the main.py file
+Then run the main.py file
 ```
 python3 main.py
 ```
