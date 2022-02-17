@@ -28,6 +28,8 @@ def display_guns(n):
         display_stats(gun_str)  #To Generate the Stats Card
         color_gun_text(gun_str)
         shotgun_sniper_bonus(gun_str)
+
+        elemental_bonus(gun_str)
         
         display_redtext(color_gun_text(gun_str))    #To determine Red Text
         
@@ -113,6 +115,21 @@ def shotgun_sniper_bonus(n):
     elif 'Shotgun' in n:
         prefix_info.insert(0.0, "If Range 3 or less: +2 Damage. ")
             
+def elemental_bonus(n):
+    if 'Shock' in n:
+        prefix_info.insert(2.0, " Double Damage to Shields")
+    elif 'Incendiary' in n:
+        prefix_info.insert(2.0, " Double Damage to Flesh")
+    elif 'Corrosive' in n:
+        prefix_info.insert(2.0, " Double Damage to Armor and Metal")
+    elif 'Explosive' in n:
+        prefix_info.insert(2.0, " Deals half Damage to all adjacent squares. 30% chance to cause Knockback")
+    elif 'Radiation' in n:
+        prefix_info.insert(2.0, " Penetrates Shield. If Target dies, explodes and deals 3d6 Splash Radiation Damage")
+    elif 'Cryo' in n:
+        prefix_info.insert(2.0, " Target can only move 1 square. if Target is hit again, they are Frozen: can either move one square or make a Melee Attack")
+
+
 
 root = Tk()
 root.title('Bunkers and Badasses Loot, suckas!')
