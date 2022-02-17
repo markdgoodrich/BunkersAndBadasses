@@ -1,5 +1,5 @@
-#Bunkers & Badasses 
-#Loot Generator
+Bunkers & Badasses 
+Loot Generator
 -------------------
 
 A simple Tkinter GUI to automatically generate loot for the Bunkers & Badasses TTRPG.
@@ -13,7 +13,7 @@ To Do
 * ~~Add Potion generator~~
 * ~~Add 'Prefix' button and functionality (append current generated gun with a rolled Prefix)~~
 * ~~Add 'Red Text' button and functionality (separate Label under the Gun Card/Stats)~~
-
+* Make it pretty
 
 Installation & Usage
 --------
