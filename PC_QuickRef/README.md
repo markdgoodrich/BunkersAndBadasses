@@ -110,7 +110,7 @@ A Reload occurs when a Player rolls a 1 on their Range Attack roll.
 **RECHARGE SHIELD**
 ![](./icons/shieldcomb_resize.png)
 
-If Player has not taken any Damage, Shields Recahrge euqal to the Shiel dRecharge Ratw of the equipped Shield, up to the value of max Shields.
+If Player has not taken any Damage, Shields Recharge equal to the Shield Recharge Rate of the equipped Shield, up to the value of max Shields.
 
 ---
 **REGENERATE HEALTH**
