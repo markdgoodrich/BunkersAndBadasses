@@ -1,8 +1,7 @@
-# Bunkers & Badasses
-# Player Reference Sheet
+# Bunkers & Badasses Player Reference Sheet
 ---
 ## Basic Actions
-Players can do any/all of the following, once, in any order:
+#### Players can do any/all of the following, once, in any order:
 
 **MOVE** 
 ![](./icons/sprint_resize.png)
@@ -59,53 +58,49 @@ Drink a Potion and immediately gain effects.
 
 ## Mayhem Actions ![](./icons/burning-skull_resize.png)
 
-Players can optionally do any/all of the following for the price of generating 1 Mayhem Point
+#### Players can _optionally_ do any/all of the following for the price of generating 1 Mayhem Point:
 
 
 ---
-**EXTRA MOVE** ![](./icons/sprint_resize.png)
-![](./icons/burning-skull_resize_smaller.png)
+**EXTRA MOVE** ![](./icons/sprint_resize.png)![](./icons/burning-skull_resize_smaller.png)
 
 Move a number of square equal to Movement Speed (3 + SPD Mod) 
 
 ---
 
-**EXTRA ATTACK** ![](./icons/winchester-rifle_resize.png)![](./icons/swordwoman_resize.png)
-![](./icons/burning-skull_resize_smaller.png)
+**EXTRA ATTACK** ![](./icons/winchester-rifle_resize.png)![](./icons/swordwoman_resize.png)![](./icons/burning-skull_resize_smaller.png)
 
 Make a **GUN** or **MELEE** Attack.
 
 ---
 
-**SWAP GUN** ![](./icons/back-forth_resize.png)
-![](./icons/burning-skull_resize_smaller.png)
+**SWAP GUN** ![](./icons/back-forth_resize.png)![](./icons/burning-skull_resize_smaller.png)
 
 Player swaps their current gun for another Equipped Gun.
 
 ---
 
-**ATTEMPT A CHECK** ![](./icons/eye-target_resize.png)
-![](./icons/burning-skull_resize_smaller.png)
+**ATTEMPT A CHECK** ![](./icons/eye-target_resize.png)![](./icons/burning-skull_resize_smaller.png)
 
 Failure results in generating 2 total Mayhem Points
 
 ---
 
-**HANDOFF ITEM** ![](./icons/shaking-hands_resize.png)
-![](./icons/burning-skull_resize_smaller.png)
+**HANDOFF ITEM** ![](./icons/shaking-hands_resize.png)![](./icons/burning-skull_resize_smaller.png)
 
 Can Hand Off an item adjacent target
 
 ---
 
-**RELOAD**![](./icons/reload-gun-barrel_resize.png)
-![](./icons/burning-skull_resize_smaller.png)
+**RELOAD**![](./icons/reload-gun-barrel_resize.png)![](./icons/burning-skull_resize_smaller.png)
 
 A Reload occurs when a Player rolls a 1 on their Range Attack roll. 
 - A Player may also choose to skip their Attack and Reload.
 
 
+---
 
+---
 
 ## End of Round
 **RECHARGE SHIELD**
