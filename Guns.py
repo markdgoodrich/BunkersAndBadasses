@@ -1,4 +1,5 @@
 import random
+from LevelTier import level_tier
 
 
 #Enemy drop drop
@@ -83,13 +84,15 @@ rarity_table = {
 43: 'EpicE',
 44: 'EpicE',
 45: 'LegendaryE',
-46: 'LegendaryE'
+46: 'LegendaryE',
+99: 'Legendary' #Added so that the rarity color parses will work. this result will never be rolled
     }
 
 
 
 
-def gun_generator():
+def gun_generator(n):
+    tier= level_tier(n)
     gun = gun_type[random.randint(1,6)]
     guild = guilds[(random.randint(1,8))]
     rare = rarity_table[int(str(random.randint(1,4))+str(random.randint(1,6)))]
@@ -97,74 +100,73 @@ def gun_generator():
     if guild == 'Alas' or guild == 'Blackpowder':
         if rare[-1] == 'E':
             rare = rare[:-1]
-        return  guild + ' ' + gun + '(' + rare + ')', bonuses(guild, rare)
+        return  guild + ' ' + gun + '(' + rare + ')', bonuses(guild, rare)# + stat_gen(tier, gun)
     elif rare[-1] == 'E':
         if rare[-1] == 'E':
             rare = rare[:-1]
         #else:
         #   pass
-        return element_picker(gun, guild, rare), bonuses(guild, rare)
+        return element_picker(gun, guild, rare), bonuses(guild, rare)#+ stat_gen(tier, gun)
     else:
-        return  guild + ' ' + gun + '(' + rare + ')', bonuses(guild,rare)
-    
+        return  guild + ' ' + gun + '(' + rare + ')', bonuses(guild,rare)#+ stat_gen(tier, gun)
         
 def element_picker(gun, guild, rare):        
     ele_roll = random.randint(1,100) 
     if rare == 'Common':
         if ele_roll == 99 or ele_roll == 100:
-            return 'Cyro' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Cyro ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 97 or ele_roll == 98:
-            return 'Incendiary' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Incendiary ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 95 or ele_roll == 96:
-            return 'Explosive' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Explosive ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 93 or ele_roll == 94:
-            return 'Shock' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Shock ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 91 or ele_roll == 92:
-            return 'Corrosive' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Corrosive ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll <= 90 and ele_roll >= 86:
-            return 'Radiation'  + guild + ' ' + gun + '(' + rare + ')'
+            return 'Radiation '  + guild + ' ' + gun + '(' + rare + ')'
         else:
             return guild + ' ' + gun + '(' + rare + ')'
     elif rare == 'Uncommon':
         if ele_roll == 99 or ele_roll == 100:
-            return 'Cyro (+1d6)'  + guild + ' ' + gun + '(' + rare + ')'
+            return 'Cyro (+1d6) '  + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 97 or ele_roll == 98:
-            return 'Incendiary (+1d6)'  + guild + ' ' + gun + '(' + rare + ')'
+            return 'Incendiary (+1d6) '  + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 95 or ele_roll == 96:
-            return 'Explosive (+1d6)' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Explosive (+1d6) ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 93 or ele_roll == 94:
-            return 'Shock (+1d6)' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Shock (+1d6) ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 91 or ele_roll == 92:
-            return 'Corrosive (+1d6)' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Corrosive (+1d6) ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll <= 90 and ele_roll >= 86:
-            return 'Radiation (+1d6)' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Radiation (+1d6) ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll <= 85 and ele_roll >= 81:
-            return 'Cyro' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Cyro ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll <= 80 and ele_roll >= 76:
-            return 'Incendiary'  + guild + ' ' + gun + '(' + rare + ')'
+            return 'Incendiary '  + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll <= 75 and ele_roll >= 71:
-            return 'Explosive' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Explosive ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll <= 70 and ele_roll >= 66:
-            return 'Shock' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Shock ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll <= 65 and ele_roll >= 61:
-            return 'Corrosive' + ' ' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Corrosive ' + ' ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll <= 60 and ele_roll >= 56:
-            return 'Radiation' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Radiation ' + guild + ' ' + gun + '(' + rare + ')'
         else:
             return guild + ' ' + gun + '(' + rare + ')'
     elif rare == 'Rare':
         if ele_roll == 99 or ele_roll == 100:
-            return 'Cyro (+2d6)' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Cyro (+2d6) ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 97 or ele_roll == 98:
-            return 'Incendiary (+2d6)' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Incendiary (+2d6) ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 95 or ele_roll == 96:
-            return 'Explosive (+2d6)' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Explosive (+2d6) ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 93 or ele_roll == 94:
-            return 'Shock (+2d6)' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Shock (+2d6) ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll == 91 or ele_roll == 92:
-            return 'Corrosive (+2d6)' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Corrosive (+2d6) ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll <= 90 and ele_roll >= 86:
-            return 'Radiation (+2d6)' + ' ' + guild + ' ' + gun + '(' + rare + ')'
+            return 'Radiation (+2d6) ' + ' ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll <= 85 and ele_roll >= 81:
             return 'Cyro (+1d6)' + ' ' + guild + ' ' + gun + '(' + rare + ')'
         elif ele_roll <= 80 and ele_roll >= 76:
@@ -399,6 +401,10 @@ def lootsplosion_array(n):
         
     return loot 
 
+
+
+
+#stat_gen(11, 'Pistol')
 
 #while True:
 #    gun_num = input('HOW MANY GUNS DO YOU WANT?!?: ')
