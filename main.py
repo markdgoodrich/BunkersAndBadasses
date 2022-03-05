@@ -11,6 +11,9 @@ from Relics import  relic_gen
 from Potions import potion_gen
 from RedText import redtext_gen
 from Prefixes import prefix_gen
+from EnemyDropTable import rank_piles
+from EnemyDropTable import enemy_drop_table
+
 
 def display_guns(n):
     gun_info.delete(1.0, 'end') #Clears old entry
@@ -78,7 +81,7 @@ def display_stats(n):
         if gun_type[x] in n:    #finds the gun type from the current gun name
             stats = stat_gen(int(lvl.get()), str(gun_type[x]))
             
-    #Pareses & writes gun value data out to the text fields
+    #Parses & writes gun value data out to the text fields
     stats = str(stats).replace("(",'').replace(')', '').replace("'", "")
     dmg, die, dist = stats.split(",")
     dmg1_text.insert(1.0, dmg[0] + "  " + dmg[1])
@@ -130,10 +133,15 @@ def elemental_bonus(n):
         prefix_info.insert(2.0, " Target can only move 1 square. if Target is hit again, they are Frozen: can either move one square or make a Melee Attack")
 
 
+def display_enemy_drop(n):
+    loot_enemy_info.delete(1.0, "end")
+    lootpile = enemy_drop_table(rank_piles(n)) #returns array
+    print(str(lootpile)[2:-2])
+    loot_enemy_info.insert(1.0, str(lootpile)[2:-2])
 
 root = Tk()
 root.title('Bunkers and Badasses Loot, suckas!')
-root.geometry("750x600")
+root.geometry("750x800")
 background_color = '#5b5b5b'
 button_color= '#c27ba0'
 textbox_color = '#999999'
@@ -225,6 +233,12 @@ prefix_btn = Checkbutton(root, text='Prefix', variable=prefix_var, onvalue=True,
 prefix_info = Text(root, height=3, width=60, wrap=WORD, bg=textbox_color) #Displays gun info generated from the Button#
 
 
+#---- Enemy Drop Table  ----#
+enemy_drop_label =Label(root, text="\nEnemy Drop Loot Generation\n------------------", font='14', bg=background_color)
+badass_rank_label = Label(root, text="Badass Rank", font='12', bg=background_color)
+badass_rank = Text(root, height=1, width=4)
+loot_enemy_btn = Button(root, text='Loot Pile', bg=background_color, command=lambda: display_enemy_drop(int(badass_rank.get("1.0", "end"))))
+loot_enemy_info = Text(root, height = 8, width = 20, wrap=WORD, bg=textbox_color)
 
 #----- Placements -----#
 
@@ -253,6 +267,11 @@ prefix_info.grid(row=12, column=1, sticky='w', columnspan=6, pady=4)
 redtext_btn.grid(row=9, column=7)
 redtext_info.grid(row=13, column=1, sticky='w', columnspan=6)
 
+enemy_drop_label.grid(row=28, column=0, columnspan=4)
+badass_rank_label.grid(row=29, column=0)
+badass_rank.grid(row=29, column=1, sticky='w')
+loot_enemy_btn.grid(row=29, column=2, sticky='w')
+loot_enemy_info.grid(row=31, column=1, sticky='w', columnspan=6)
 
 root.mainloop()
 
