@@ -136,7 +136,7 @@ def elemental_bonus(n):
 def display_enemy_drop(n):
     loot_enemy_info.delete(1.0, "end")
     lootpile = enemy_drop_table(rank_piles(n)) #returns array
-    print(str(lootpile)[2:-2])
+    #print(str(lootpile)[2:-2])
     loot_enemy_info.insert(1.0, str(lootpile)[2:-2])
 
 root = Tk()
